@@ -55,7 +55,7 @@ app.post('/', function(req, res) {
 });
 
 app.get('/thanks', function(req, res) {
-    res.send('Thanks');
+    res.send('<div id="confirmed-submission">Thanks</div>');
 });
 
 module.exports = app;

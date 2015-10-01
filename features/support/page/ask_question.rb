@@ -5,7 +5,7 @@ class AskQuestionPage < SitePrism::Page
 
     element :submit, "button[type=submit]"
 
-    element :confirmation_of_submission, "#confirmed-submission"
+    element :confirmation_of_submission, "div#confirmed-submission"
 
     def fill_in_message_field
         message.set Faker::Lorem.words.join(' ')

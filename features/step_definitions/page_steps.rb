@@ -9,8 +9,8 @@ Given(/^I fill in the (.+)$/) do |field_name|
     @page.send('fill_in_' + field_name._case)
 end
 
-Given(/^I submit$/) do
-    @page.submit
+Given(/^I click (.+)$/) do |what|
+    @page.send(what._case).click
 end
 
 Then(/^I should see a (.+)$/) do |what|

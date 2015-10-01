@@ -1,0 +1,9 @@
+#! /usr/bin/env node
+
+require('../src')
+
+src('server')
+    .listen(3000, function(err) {
+        if(err) throw err;
+        console.log('Started server ...');
+    });
