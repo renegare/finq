@@ -3,7 +3,13 @@ describeRoute('submit question', function(browser, app) {
         ;
 
     before(function() {
-        app.datastore.questions.get().should.have.length(0);
+        return app.datastore()
+            .then(function(models) {
+                return models.questions.find();
+            })
+            .then(function(messages) {
+                messages.should.have.length(0);
+            });
     });
 
     before(function() {
@@ -23,8 +29,12 @@ describeRoute('submit question', function(browser, app) {
     });
 
     it('should have persisted message', function() {
-        var questions = app.datastore.questions.get();
-        questions.should.have.length(1);
-        questions[0].body.should.equal(expectedMessage);
+        return app.datastore()
+            .then(function(models) {
+                return models.questions.find();
+            })
+            .then(function(messages) {
+                messages.should.have.length(1);
+            });
     })
 });

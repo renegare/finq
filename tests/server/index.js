@@ -1,8 +1,11 @@
 require('../../src');
 
 var server,
-    Browser = require('zombie')
+    Browser = require('zombie'),
+    chai = require('chai')
     ;
+
+chai.should();
 
 Browser.localhost('example.com', 3000);
 
